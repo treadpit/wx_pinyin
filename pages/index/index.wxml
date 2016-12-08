@@ -15,9 +15,11 @@
     </block>
   </scroll-view>
 
-  <view class="nav box box-tb" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchcancel="touchcancel">
+  <view class="nav box box-tb" bindtouchmove="touchmove" bindtouchcancel="touchcancel" bindtouchend="touchend">
     <view bindtap="tabLetter" data-index="{{item}}" wx:for="{{letters}}" class="flex box box-align-center box-pack-center letter">
       <text class="letter-text {{selected == item ? 'letter-actived' : ''}}">{{item}}</text>
     </view>
   </view>
 </view>
+
+<!--<view style="background-color: red; position: fixed;left:0;width:750rpx;height: 1250rpx;"></view>-->

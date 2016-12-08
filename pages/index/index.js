@@ -1,7 +1,7 @@
 Page({
   data:{
     // 当前选择的导航字母
-    selected: 'A',
+    selected: 0,
     // 选择字母视图滚动的位置id
     scrollIntoView: 'A',
     // 导航字母
@@ -146,9 +146,6 @@ Page({
       }
     ]
   },
-  onReady() {
-    
-  },
   onLoad:function(options){
     const res = wx.getSystemInfoSync(),
           letters = this.data.letters;
@@ -158,11 +155,22 @@ Page({
       windowWidth: res.windowWidth,
       pixelRatio: res.pixelRatio
     });
-    const comTop = (this.data.windowHeight - this.data.windowHeight * 0.94) / 2,
+    // 第一个字母距离顶部高度，单位使用的是rpx,须除以pixelRatio，才能与touch事件中的数值相加减，css中定义nav高度为94%，所以 *0.94
+    const navHeight = this.data.windowHeight * 0.94, // 
+          eachLetterHeight = navHeight / 26,
+          comTop = (this.data.windowHeight - navHeight) / 2, 
           temp = [];
-    // 各字母距离设备左上角所处位置
+
+    this.setData({
+      eachLetterHeight: eachLetterHeight
+    });
+
+    // 求各字母距离设备左上角所处位置
+
     for(let i = 0, len = letters.length; i < len; i++) {
-      temp.push([this.data.windowWidth - (10 + 50) / this.data.pixelRatio, comTop + (i * 50 / this.data.pixelRatio)]);
+      const x = this.data.windowWidth - (10 + 50) / this.data.pixelRatio,
+            y = comTop + (i * eachLetterHeight);
+      temp.push([x, y]);
     }
     this.setData({
       lettersPosition: temp
@@ -174,29 +182,41 @@ Page({
       selected: index,
       scrollIntoView: index
     })
-  },
-  touchstart(e) {
     
+    this.cleanAcitvedStatus();
+  },
+  // 清除字母选中状态
+  cleanAcitvedStatus() {
+    setTimeout(() => {
+      this.setData({
+          selected: 0
+      })
+    }, 500);
   },
   touchmove(e) {
     const x = e.touches[0].clientX,
           y = e.touches[0].clientY,
-          lettersPosition = this.data.lettersPosition;
+          lettersPosition = this.data.lettersPosition,
+          eachLetterHeight = this.data.eachLetterHeight,
+          letters = this.data.letters;
+    console.log(y);
     // 判断触摸点是否在字母导航栏上
     if(x >= lettersPosition[0][0]) {
       for(let i = 0, len = lettersPosition.length; i < len; i++) {
         // 判断落在哪个字母区域，取出对应字母所在数组的索引，根据索引更新selected及scroll-into-view的值
-        if(y >= lettersPosition[i][1] && y <= lettersPosition[i][1] + (50 / this.data.pixelRatio)) {
+        const _y = lettersPosition[i][1], // 单个字母所处高度
+              __y = _y + eachLetterHeight; // 单个字母最大高度取值范围， 50为字母高50rpx
+        if(y >= _y && y <= __y) {
            this.setData({
-            selected: this.data.letters[i],
-            scrollIntoView: this.data.letters[i]
+            selected: letters[i],
+            scrollIntoView: letters[i]
           });
           break;
         }
       }
     }
   },
-  touchcancel(e) {
-    
+  touchend(e) {
+    this.cleanAcitvedStatus();
   }
 })
