@@ -2,7 +2,7 @@ page {
   background-color: #eee;
 }
 .nav {
-  position: absolute;
+  position: fixed;
   right: 10rpx;
   top: 3%;
   height: 94%;
@@ -10,14 +10,16 @@ page {
   font-family: Arial, Helvetica, sans-serif
 }
 .letter {
+  width: 50rpx;
+  height: 50rpx;
   font-size: 30rpx;
   border-radius: 50%;
 }
 .letter-actived {
   background-color: #ccc;
 }
-.group {
-  height: 200rpx;
+.groups {
+  /*height: 100%;*/
 }
 .group-name {
   padding: 10rpx 30rpx;

@@ -1,39 +1,22 @@
 <view class="flex box box-lr">
-  <view class="flex group box box-tb">
-    <view class="group-name">A</view>
-    <view class="flex group-users">
-      <view class="user box box-lr">
-        <view class="user-avatar box box-lr box-pack-center box-align-center">
-          <image class="user-avatar-img" src="../../images/avatar.png"></image>
+  <scroll-view class="flex groups box box-tb" scroll-y="true" scroll-into-view="{{scrollIntoView}}">
+    <block wx:for="{{groups}}" wx:for-item="group">
+      <view class="flex" id="{{group.groupName}}">
+        <view class="group-name">{{group.groupName}}</view>
+        <view class="flex group-users">
+          <view wx:for="{{group.users}}" wx:for-item="user" wx:for-index="idx" class="user box box-lr">
+            <view class="user-avatar box box-lr box-pack-center box-align-center">
+              <image class="user-avatar-img" src="{{user.avatar}}"></image>
+            </view>
+            <view class="flex user-name">{{user.name}}</view>
+          </view>
         </view>
-        <view class="flex user-name">name</view>
       </view>
-      <view class="user box box-lr">
-        <view class="user-avatar box box-lr box-pack-center box-align-center">
-          <image class="user-avatar-img" src="../../images/avatar.png"></image>
-        </view>
-        <view class="flex user-name">name</view>
-      </view>
-    </view>
-    <view class="group-name">A</view>
-    <view class="flex group-users">
-      <view class="user box box-lr">
-        <view class="user-avatar box box-lr box-pack-center box-align-center">
-          <image class="user-avatar-img" src="../../images/avatar.png"></image>
-        </view>
-        <view class="flex user-name">name</view>
-      </view>
-      <view class="user box box-lr">
-        <view class="user-avatar box box-lr box-pack-center box-align-center">
-          <image class="user-avatar-img" src="../../images/avatar.png"></image>
-        </view>
-        <view class="flex user-name">name</view>
-      </view>
-    </view>
-  </view>
+    </block>
+  </scroll-view>
 
-  <view class="nav box box-tb">
-    <view bindtap="tabLetter" data-index="{{index}}" wx:for="{{letters}}" class="flex box box-align-center box-pack-center letter {{selected === index ? 'letter-actived' : ''}}">
+  <view class="nav box box-tb" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchcancel="touchcancel">
+    <view bindtap="tabLetter" data-index="{{item}}" wx:for="{{letters}}" class="flex box box-align-center box-pack-center letter {{selected == item ? 'letter-actived' : ''}}">
       <text>{{item}}</text>
     </view>
   </view>
