@@ -10,9 +10,14 @@ page {
   font-family: Arial, Helvetica, sans-serif
 }
 .letter {
+  font-size: 30rpx;
+}
+.letter-text {
+  display: inline-block;
   width: 50rpx;
   height: 50rpx;
-  font-size: 30rpx;
+  text-align: center;
+  line-height: 50rpx;
   border-radius: 50%;
 }
 .letter-actived {

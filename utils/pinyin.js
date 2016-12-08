@@ -457,7 +457,6 @@ const py = {
     }
 };
 
-
-console.log(py.get('我keyi加123'));
-console.log(py.getFirstLetter('我keyi加123'));
-console.log(py.getPinyin('我keyi加123'));
+module.exports = {
+    py: py
+}
