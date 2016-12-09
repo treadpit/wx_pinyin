@@ -155,7 +155,7 @@ Page({
       windowWidth: res.windowWidth,
       pixelRatio: res.pixelRatio
     });
-    // 第一个字母距离顶部高度，单位使用的是rpx,须除以pixelRatio，才能与touch事件中的数值相加减，css中定义nav高度为94%，所以 *0.94
+    // 第一个字母距离顶部高度，css中定义nav高度为94%，所以 *0.94
     const navHeight = this.data.windowHeight * 0.94, // 
           eachLetterHeight = navHeight / 26,
           comTop = (this.data.windowHeight - navHeight) / 2, 
