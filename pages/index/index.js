@@ -155,7 +155,7 @@ Page({
       windowWidth: res.windowWidth,
       pixelRatio: res.pixelRatio
     });
-    // 第一个字母距离顶部高度，单位使用的是rpx,须除以pixelRatio，才能与touch事件中的数值相加减，css中定义nav高度为94%，所以 *0.94
+    // 第一个字母距离顶部高度，css中定义nav高度为94%，所以 *0.94
     const navHeight = this.data.windowHeight * 0.94, // 
           eachLetterHeight = navHeight / 26,
           comTop = (this.data.windowHeight - navHeight) / 2, 
@@ -205,7 +205,7 @@ Page({
       for(let i = 0, len = lettersPosition.length; i < len; i++) {
         // 判断落在哪个字母区域，取出对应字母所在数组的索引，根据索引更新selected及scroll-into-view的值
         const _y = lettersPosition[i][1], // 单个字母所处高度
-              __y = _y + eachLetterHeight; // 单个字母最大高度取值范围， 50为字母高50rpx
+              __y = _y + eachLetterHeight; // 单个字母最大高度取值范围
         if(y >= _y && y <= __y) {
            this.setData({
             selected: letters[i],
