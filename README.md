@@ -6,4 +6,4 @@
 
 ### 项目截图
 
-<img src="https://github.com/treadpit/wx_app_movie/blob/master/screenshot/164312br88gjgus3zdnhhl.gif" width="380px">
+<img src="https://github.com/treadpit/wx_pinyin/blob/master/screenshot/164312br88gjgus3zdnhhl.gif" width="380px">
