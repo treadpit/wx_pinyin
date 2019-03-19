@@ -1,11 +1,12 @@
 {
   "pages":[
+    "pages/Navigetor/index",
     "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "字母导航栏",
+    "navigationBarTitleText": "字母导航",
     "navigationBarTextStyle":"black"
   }
 }

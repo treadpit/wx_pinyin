@@ -1,0 +1,30 @@
+<view class="scroll tb">
+  <scroll-view scroll-with-animation scroll-top="{{to}}" scroll-y bindscroll="whenScroll">
+    <block wx:for="{{avatars}}" wx:key="{{item.id}}">
+      <view id="{{item.id === '#' ? 'all' : item.id}}" wx:if="{{item.enabled}}">
+        <view class='category-title'>{{item.id}}</view>
+        <view class='list lr center wrap'>
+          <view
+            class='item tb center'
+            wx:for="{{item.items}}"
+            wx:for-item="avatar"
+            wx:key="{{avatar.id}}"
+            data-id="{{avatar.id}}"
+            catchtap=''>
+            <image src="{{avatar.avatar}}" mode="aspectFit"></image>
+            <text>{{avatar.name}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <view class='letters tb'>
+    <text
+      wx:for="{{avatars}}"
+      wx:key="{{item.id}}"
+      class="item flex tb center {{item.enabled ? '' : 'disabled'}} {{item.id === current ? 'hight-light' : ''}}"
+      data-id="{{item.id}}"
+      catchtap='switchLetter'>{{item.id}}</text>
+  </view>
+</view>

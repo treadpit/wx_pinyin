@@ -1,0 +1,82 @@
+.scroll {
+  background-color: #f7f5f5;
+  font-size: 28rpx;
+  color: #303133;
+}
+
+.tb,
+.scroll.tb {
+  display: flex;
+  flex-direction: column;
+}
+
+scroll-view {
+  height: 100vh;
+}
+
+.lr {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.center {
+  align-items: center;
+}
+
+.flex {
+  flex: 1;
+}
+
+.category-title {
+  padding: 24rpx;
+  background-color: #f7f5f5;
+}
+
+.list {
+  background-color: white;
+  padding: 12rpx 60rpx 12rpx 12rpx;
+}
+
+.list .item {
+  margin: 12rpx;
+  width: 202rpx;
+}
+
+.list .item image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.list .item text {
+  margin-top: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.letters {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f2f2f2;
+  width: 48rpx;
+}
+
+.disabled {
+  opacity: .2;
+  pointer-events: none;
+}
+
+.hight-light {
+  color: #f40;
+  font-weight: bold;
+}
