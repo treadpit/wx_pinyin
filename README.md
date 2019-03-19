@@ -4,4 +4,4 @@
 
 ### 项目截图
 
-<img src="https://github.com/TREADPIT GITHUB/wx_pinyin/blob/master/screenshot/screenshot.gif" width="380px">
+<img src="https://raw.githubusercontent.com/treadpit/wx_pinyin/master/screenshot/screenshot-min.gif" width="380px">
